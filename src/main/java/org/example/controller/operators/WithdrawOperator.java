@@ -4,7 +4,6 @@ import org.example.controller.interfaces.IAccountOperator;
 import org.example.model.Transaction;
 import org.example.model.TransactionType;
 import org.example.model.interfaces.IDataSaver;
-import org.example.model.persistence.DataInMemory;
 
 public class WithdrawOperator implements IAccountOperator {
 

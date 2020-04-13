@@ -22,8 +22,12 @@ public class BankAccountController {
         this.balanceProvider = balanceProvider;
     }
 
-    public void withdraw(int accountId, double amount) {
-        this.withdrawOperator.execute(accountId, amount);
+    public boolean withdraw(int accountId, double amount) {
+        if (getBalanceByAccountId(accountId) >= amount) {
+            this.withdrawOperator.execute(accountId, amount);
+            return true;
+        }
+        return false;
     }
 
     public void deposit(int accountId, double amount) {

@@ -110,8 +110,11 @@ public class ConsoleApp {
     private void withdraw(Scanner scanner, int accountId) {
         System.out.print("Enter amount you need to withdraw: ");
         double amount = scanner.nextDouble();
-        bankAccountController.withdraw(accountId, amount);
-        System.out.println("successful withdraw operation");
+        if (bankAccountController.withdraw(accountId, amount)) {
+            System.out.println("successful withdraw operation");
+        } else {
+            System.out.println("Unsuccessful withdraw operation");
+        }
     }
 
     private void deposit(Scanner scanner, int accountId) {
@@ -130,7 +133,7 @@ public class ConsoleApp {
     }
 
     private void getBalance(int accountId) {
-        print("My Balance is ");
+        System.out.print("My Balance is ");
         double balance = bankAccountController.getBalanceByAccountId(accountId);
         System.out.println(balance);
     }
