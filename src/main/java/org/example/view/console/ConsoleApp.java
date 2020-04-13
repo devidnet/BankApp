@@ -80,6 +80,9 @@ public class ConsoleApp {
                     case 'W':
                         withdraw(scanner, accountId);
                         break;
+                    case 'D':
+                        deposit(scanner, accountId);
+                        break;
                     default:
                         print(option + " is an invalid option");
                         break;
@@ -103,6 +106,13 @@ public class ConsoleApp {
         System.out.print("Enter amount you need to withdraw: ");
         double amount = scanner.nextDouble();
         bankAccountController.withdraw(accountId, amount);
+        System.out.println("successful withdraw operation");
+    }
+
+    private void deposit(Scanner scanner, int accountId) {
+        System.out.print("Enter amount you want to deposit: ");
+        double amount = scanner.nextDouble();
+        bankAccountController.deposit(accountId, amount);
         System.out.println("successful withdraw operation");
     }
 }
