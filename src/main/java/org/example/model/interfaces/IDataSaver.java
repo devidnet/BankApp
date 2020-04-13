@@ -5,6 +5,7 @@ import org.example.model.Owner;
 import org.example.model.Transaction;
 
 import java.util.List;
+import org.example.model.TransactionType;
 
 public interface IDataSaver {
     Owner getOwnerById(String id);
@@ -20,6 +21,7 @@ public interface IDataSaver {
     Transaction getTransactionByAccountId(int accountId);
 
     List<Transaction> getTransactionsByAccountId(int accountId);
-
     void addTransaction(Transaction transaction);
+
+    double getBalanceByAccountId(int accountId);
 }

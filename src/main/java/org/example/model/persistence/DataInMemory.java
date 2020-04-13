@@ -1,10 +1,12 @@
 package org.example.model.persistence;
 
+import static org.example.model.TransactionType.DEPOSIT;
+import static org.example.model.TransactionType.WITHDRAW;
+
 import java.util.stream.Collectors;
 import org.example.model.Account;
 import org.example.model.Owner;
 import org.example.model.Transaction;
-import org.example.model.TransactionType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,11 +37,11 @@ public class DataInMemory {
         accounts.add(account1);
 
         // Populate Transactions
-        Transaction transaction1 = new Transaction(TransactionType.DEPOSIT, 10000.0, account1.getId());
+        Transaction transaction1 = new Transaction(DEPOSIT, 10000.0, account1.getId());
         transactions.add(transaction1);
         account1.addTransaction(transaction1);
 
-        Transaction transaction2 = new Transaction(TransactionType.WITHDRAW, 50.0, account1.getId());
+        Transaction transaction2 = new Transaction(WITHDRAW, 50.0, account1.getId());
         transactions.add(transaction2);
         account1.addTransaction(transaction2);
     }
@@ -87,5 +89,9 @@ public class DataInMemory {
         if (account.isPresent()) {
             account.get().addTransaction(transaction);
         }
+    }
+
+    public double getBalanceByAccountId(int accountId) {
+        return getAccountById(accountId).get().getBalance();
     }
 }

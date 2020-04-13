@@ -22,6 +22,14 @@ public class Transaction {
         return accountId;
     }
 
+    public TransactionType getType() {
+        return type;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
     @Override
     public String toString() {
     StringBuilder transactionSummary = new StringBuilder();
