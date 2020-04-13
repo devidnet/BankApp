@@ -41,6 +41,11 @@ public class DataSaverInMemory implements IDataSaver {
     }
 
     @Override
+    public List<Transaction> getTransactionsByAccountId(int accountId) {
+        return DataInMemory.getInstance().getTransactionsByAccountId(accountId);
+    }
+
+    @Override
     public void addTransaction(Transaction transaction) {
         DataInMemory.getInstance().addTransaction(transaction);
     }

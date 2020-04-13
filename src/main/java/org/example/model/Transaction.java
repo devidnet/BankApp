@@ -21,4 +21,17 @@ public class Transaction {
     public int getAccountId() {
         return accountId;
     }
+
+    @Override
+    public String toString() {
+    StringBuilder transactionSummary = new StringBuilder();
+    transactionSummary.append(this.type)
+                        .append(" of ")
+                        .append(this.amount)
+                        .append(" From ")
+                        .append(this.accountId)
+                        .append(" on " )
+                        .append(this.dateTime);
+        return  transactionSummary.toString();
+    }
 }

@@ -19,5 +19,7 @@ public interface IDataSaver {
 
     Transaction getTransactionByAccountId(int accountId);
 
+    List<Transaction> getTransactionsByAccountId(int accountId);
+
     void addTransaction(Transaction transaction);
 }

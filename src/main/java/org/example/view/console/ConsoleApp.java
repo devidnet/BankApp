@@ -1,5 +1,6 @@
 package org.example.view.console;
 
+import java.util.ListIterator;
 import org.example.controller.BankAccountController;
 import org.example.controller.ControllerManager;
 import org.example.controller.OwnerController;
@@ -7,6 +8,7 @@ import org.example.model.Account;
 
 import java.util.List;
 import java.util.Scanner;
+import org.example.model.Transaction;
 
 public class ConsoleApp {
     private BankAccountController bankAccountController;
@@ -83,6 +85,9 @@ public class ConsoleApp {
                     case 'D':
                         deposit(scanner, accountId);
                         break;
+                    case 'T':
+                        getTransaction(accountId);
+                        break;
                     default:
                         print(option + " is an invalid option");
                         break;
@@ -114,5 +119,13 @@ public class ConsoleApp {
         double amount = scanner.nextDouble();
         bankAccountController.deposit(accountId, amount);
         System.out.println("successful withdraw operation");
+    }
+
+    private void getTransaction(int accountId) {
+        System.out.println("Your transaction history: ");
+        List<Transaction> transactions = bankAccountController.getTransactionsByAccountId(accountId);
+        for (Transaction transaction : transactions) {
+            System.out.println(transaction.toString());
+        }
     }
 }

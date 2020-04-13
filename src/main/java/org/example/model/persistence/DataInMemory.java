@@ -1,5 +1,6 @@
 package org.example.model.persistence;
 
+import java.util.stream.Collectors;
 import org.example.model.Account;
 import org.example.model.Owner;
 import org.example.model.Transaction;
@@ -73,6 +74,11 @@ public class DataInMemory {
 
     public Optional<Transaction> getTransactionByAccountId(int accountId) {
         return transactions.stream().filter(transaction -> transaction.getAccountId() == accountId).findFirst();
+    }
+
+    public List<Transaction> getTransactionsByAccountId(int accountId) {
+        return transactions.stream().filter(transaction -> transaction.getAccountId() == accountId).collect(
+            Collectors.toList());
     }
 
     public void addTransaction(Transaction transaction) {
